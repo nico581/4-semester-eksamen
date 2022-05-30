@@ -9,6 +9,8 @@ get_header();
     --black: #1d1c1c;
   }
 
+  /* Font og fontsize */
+
   .text {
     font-size: 21px;
     font-family: bilo, sans-serif;
@@ -16,24 +18,18 @@ get_header();
     font-weight: 300;
   }
 
-  .img {
-    background-image: url(https://bylykkeskincare.com/wp-content/uploads/2022/05/Artboard-2.png);
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  h1,
-  h2 {
+  .headline {
     font-family: "Marcellus", serif;
     font-size: 4rem !important;
   }
 
-  h3 {
+  .blogpost-headline {
     font-family: "Marcellus", serif;
     font-size: 2rem !important;
   }
+
+  /* Knapper */
+
   .knap {
     font-family: "Marcellus", serif;
     font-size: 21px;
@@ -41,6 +37,12 @@ get_header();
     background-color: var(--golden);
     padding: 0.8em;
     border: none;
+  }
+  .knap:hover {
+    background-color: var(--golden);
+  }
+.read:hover {
+    background-color: var(--golden);
   }
 
   .read {
@@ -51,37 +53,47 @@ get_header();
     padding: 0.5em;
     border: none;
   }
-  #content {
+
+  .filter:active {
+    background-color: var(--black);
+  }
+
+  .filter:focus {
+    background-color: var(--black);
+  }
+
+  /* billeder */ 
+  .img {
+    background-image: url(https://bylykkeskincare.com/wp-content/uploads/2022/05/Artboard-2.png);
+    width: 100%;
     height: auto;
-    width: 100vw;
-    overflow-x: hidden;
-    padding: 0;
-    margin: 0;
-  }
-  #sec_1 {
-    height: 350px;
-    background-color: var(--cafelatte);
-  }
-
-  .hero-text {
-    width: 650px;
-  }
-
-  #highlight {
-    height: 80vh;
-  }
-
-  #sec_3 {
-    background-color: var(--creme);
-    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .image {
     width: 400px;
   }
 
+  /*section 1*/
+  #sec_1 {
+    height: 350px;
+    background-color: var(--cafelatte);
+  }
+
+  /* section 2*/
   .blogpost {
     background-color: var(--cafelatte);
+  }
+
+  /*section 3*/
+  #sec_3 {
+    background-color: var(--creme);
+    height: 80vh;
+  }
+
+  #highlight {
+    height: 80vh;
   }
 </style>
 
@@ -110,9 +122,7 @@ get_header();
           <div class="col d-flex flex-column align-items-center">
             <h1 class="headline text-center">Articles</h1>
             <p class="text hero-text text-center">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Eligendi, id provident. Inventore aut blanditiis velit distinctio
-              necessitatibus ea earum libero!
+              Here you can read our monthly articles about skincare, new products, events and inspirational articles - enjoy!
             </p>
           </div>
         </div>
@@ -130,7 +140,7 @@ get_header();
           <div class="col">
             <section
               id="blogpost-oversigt"
-              class="d-flex justify-content-evenly gap-5 m-5"
+              class="d-flex flex-wrap justify-content-evenly gap-5 m-sm-5"
             ></section>
           </div>
         </div>
@@ -144,12 +154,9 @@ get_header();
             id="col-1"
             class="col-6 d-flex flex-column p-5 justify-content-center"
           >
-            <h2>Shop our skincare</h2>
+            <h2 class="headline">Shop our skincare</h2>
             <p class="text mt-5 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              iste quisquam voluptatum tempore rem placeat rerum aspernatur
-              nesciunt magni quas fuga neque inventore, repellat ipsam dolorum
-              incidunt distinctio. Ipsam, sequi!
+            Since 2012 ByLykke has worked towards creating the best skin care for you and your loved once.  Every step of the way we have been focused on making sure, that we only use the best and most active ingredients to help your skin be the best version of itself.
             </p>
             <button
               class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow knap align-self-start"
@@ -166,12 +173,12 @@ get_header();
 
 <section id="oversigt">
   <template>
-    <article class="blogpost p-4">
+    <article class="blogpost p-xs-2 p-4">
       <img src="" alt="" class="image" />
       <div class="info d-flex flex-column">
-        <h3 class="headline mt-2 mb-3"></h3>
+        <h3 class="blogpost-headline mt-2 mb-3"></h3>
         <p class="excerpt text"></p>
-        <button class="read align-self-end">Read more</button>
+        <button class="read align-self-center elementor-button-link elementor-button elementor-size-sm elementor-animation-grow">Read more</button>
       </div>
     </article>
   </template>
@@ -236,7 +243,7 @@ get_header();
         blogpost.categories.includes(parseInt(filterBlogpost))
       ) {
         let klon = temp.cloneNode(true).content;
-        klon.querySelector(".headline").textContent = blogpost.title.rendered;
+        klon.querySelector(".blogpost-headline").textContent = blogpost.title.rendered;
         klon.querySelector(".excerpt").innerHTML = blogpost.excerpt.rendered;
         klon.querySelector(".image").src = blogpost.image.guid;
         klon.querySelector(".read").addEventListener("click", () => {
