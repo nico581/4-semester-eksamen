@@ -30,12 +30,25 @@ get_header();
     font-size: 4rem !important;
   }
 
+  h3 {
+    font-family: "Marcellus", serif;
+    font-size: 2rem !important;
+  }
   .knap {
     font-family: "Marcellus", serif;
     font-size: 21px;
     color: white;
     background-color: var(--golden);
     padding: 0.8em;
+    border: none;
+  }
+
+  .read {
+    font-family: "Marcellus", serif;
+    font-size: 18px;
+    color: white;
+    background-color: var(--golden);
+    padding: 0.5em;
     border: none;
   }
   #content {
@@ -62,6 +75,14 @@ get_header();
     background-color: var(--creme);
     height: 80vh;
   }
+
+  .image {
+    width: 400px;
+  }
+
+  .blogpost {
+    background-color: var(--cafelatte);
+  }
 </style>
 
 <!--fonts-->
@@ -82,11 +103,11 @@ get_header();
 />
 
 <section id="primary" class="content-area">
-  <main id="main" class="site-main">
-    <section id="sec_1">
+  <main id="main" class="main">
+    <section id="sec_1" class="d-flex align-items-center">
       <div class="container-fluid">
         <div class="row">
-          <div class="col">
+          <div class="col d-flex flex-column align-items-center">
             <h1 class="headline text-center">Articles</h1>
             <p class="text hero-text text-center">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -98,9 +119,22 @@ get_header();
       </div>
     </section>
 
-    <section id="sec_2">
-      <nav id="filtrering"></nav>
-      <section id="blogpost-oversigt"></section>
+    <section id="sec_2" class="m-5">
+      <div class="container-fluid">
+        <div class="row m-5">
+          <div class="col d-flex justify-content-center">
+            <nav class="d-flex gap-5" id="filtrering"></nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <section
+              id="blogpost-oversigt"
+              class="d-flex justify-content-evenly gap-5 m-5"
+            ></section>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="sec_3">
@@ -132,12 +166,12 @@ get_header();
 
 <section id="oversigt">
   <template>
-    <article class="blogpost">
+    <article class="blogpost p-4">
       <img src="" alt="" class="image" />
-      <div class="info">
-        <h3 class="headline"></h3>
-        <p class="excerpt"></p>
-        <button class="read">Read more</button>
+      <div class="info d-flex flex-column">
+        <h3 class="headline mt-2 mb-3"></h3>
+        <p class="excerpt text"></p>
+        <button class="read align-self-end">Read more</button>
       </div>
     </article>
   </template>
@@ -170,13 +204,13 @@ get_header();
     categories.forEach((cat) => {
       document.querySelector(
         "#filtrering"
-      ).innerHTML += `<button class="filter" data-blogpost="${cat.id}">${cat.name}</button>`;
+      ).innerHTML += `<button class="filter knap elementor-button-link elementor-button elementor-size-sm elementor-animation-grow" data-blogpost="${cat.id}">${cat.name}</button>`;
     });
 
     addEventListenerToButtons();
   }
 
-  //Tilføjer eventlistener til knapperne, som gør at kreaprojekterne bliver filtreret efter kategori //
+  //Tilføjer eventlistener til knapperne, som gør at blogposts bliver filtreret efter kategori //
   function addEventListenerToButtons() {
     document.querySelectorAll("#filtrering button").forEach((elm) => {
       elm.addEventListener("click", filtrering);
@@ -203,7 +237,7 @@ get_header();
       ) {
         let klon = temp.cloneNode(true).content;
         klon.querySelector(".headline").textContent = blogpost.title.rendered;
-        //klon.querySelector(".pris").textContent = kreaprojekt.pris;//
+        klon.querySelector(".excerpt").innerHTML = blogpost.excerpt.rendered;
         klon.querySelector(".image").src = blogpost.image.guid;
         klon.querySelector(".read").addEventListener("click", () => {
           location.href = blogpost.link;
@@ -223,7 +257,6 @@ get_header();
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
-
 
 <?php
 get_footer();
