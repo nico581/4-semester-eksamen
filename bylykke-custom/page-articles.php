@@ -20,12 +20,12 @@ get_header();
 
   .headline {
     font-family: "Marcellus", serif;
-    font-size: 4rem !important;
+    font-size: 2em !important;
   }
 
   .blogpost-headline {
     font-family: "Marcellus", serif;
-    font-size: 2rem !important;
+    font-size: 1.6rem !important;
   }
 
   /* Knapper */
@@ -37,6 +37,7 @@ get_header();
     background-color: var(--golden);
     padding: 0.8em;
     border: none;
+    border-radius: 0;
   }
   .knap:hover {
     background-color: var(--golden);
@@ -52,6 +53,7 @@ get_header();
     background-color: var(--golden);
     padding: 0.5em;
     border: none;
+    border-radius: 0;
   }
 
   .filter:active {
@@ -94,6 +96,18 @@ get_header();
 
   #highlight {
     height: 80vh;
+  }
+
+  @media (min-width:1300px) {
+    .headline {
+    font-family: "Marcellus", serif;
+    font-size: 4em !important;
+  }
+
+  .blogpost-headline {
+    font-family: "Marcellus", serif;
+    font-size: 2rem !important;
+  } 
   }
 </style>
 
@@ -152,7 +166,7 @@ get_header();
         <div id="highlight" class="row">
           <div
             id="col-1"
-            class="col-6 d-flex flex-column p-5 justify-content-center"
+            class="col-12 col-sm-6 d-flex flex-column p-5 justify-content-center"
           >
             <h2 class="headline">Shop our skincare</h2>
             <p class="text mt-5 mb-5">
@@ -161,10 +175,10 @@ get_header();
             <button
               class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow knap align-self-start"
             >
-              Discover shop
+              Discover our shop
             </button>
           </div>
-          <div id="col-2" class="col-6 img"></div>
+          <div id="col-2" class="col-12 col-sm-6 img"></div>
         </div>
       </div>
     </section>
@@ -245,7 +259,7 @@ get_header();
         let klon = temp.cloneNode(true).content;
         klon.querySelector(".blogpost-headline").textContent = blogpost.title.rendered;
         klon.querySelector(".excerpt").innerHTML = blogpost.excerpt.rendered;
-        klon.querySelector(".image").src = blogpost.image.guid;
+        klon.querySelector(".image").src = blogpost.image1.guid;
         klon.querySelector(".read").addEventListener("click", () => {
           location.href = blogpost.link;
         });
