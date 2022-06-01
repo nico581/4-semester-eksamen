@@ -12,7 +12,7 @@ get_header();
   }
 
   /* font */
-  .headline {
+  .rubrik {
     font-family: "Marcellus", serif;
     font-size: 2em !important;
   }
@@ -32,15 +32,22 @@ get_header();
     background-color: var(--golden);
   }
 
-  /* Section 1*/
+  /* Section 1 */
 
   #sec_1 {
       height: 350px;
       background-color: var(--cafelatte);
   }
 
+  /* Section 3 */
+
+  #sec_3 {
+      margin-top: 4em;
+      margin-bottom: 4em;
+  }
+
   @media (min-width:1300px) {
-    .headline {
+    .rubrik {
     font-family: "Marcellus", serif;
     font-size: 4em !important;
   }
@@ -69,30 +76,57 @@ get_header();
             <div class="container-fluid">
             <div class="row"> 
                 <div class="col-12 d-flex flex-column align-items-center"
-                ><h1 class="headline text-center">
-                </h1></div>
+                ><h1 class="rubrik text-center">
+                </h1>
+        </div>
+        <div class="row d-flex flex-column align-items-center">
+            <div class="col-12 col-md-4">
+                    <p class="underrubrik text-center"></p>
+            </div>
+        </div>
             </div>
             
         </div></section>
         
 <section id="sec_2">
 <div class="container">
-        <div class="row mt-5 mb-5">
-                <div class="col-6">
-                <p class="paragraph"></p>
+        <div class="row mt-5 mb-5 flex-column-reverse flex-md-row">
+                <div class="col-12 col-sm-6 d-flex mt-5 mt-md-0 p-4">
+                <p class="brodtekst1 align-self-center"></p>
                 </div>
-                <div class="col-6 d-flex justify-content-center">
-                <img class="image" src="" alt="">
+                <div class="col-12 col-md-6 d-flex justify-content-center">
+                <img class="image1" src="" alt="">
                 </div>
             </div>
-            <div class="row mt-5 mb-5"> 
-                <div class="col d-flex justify-content-center">
-                    <button class="knap elementor-button-link elementor-button elementor-size-sm elementor-animation-grow align-self-center">Back to articles</button>
-            </div>
+            
         </div>
     </div>
 </section>
  
+<section id="sec_3">
+<div class="container">
+        <div class="row">
+                <div class="col-12 col-md-6  d-flex justify-content-center">
+                <img class="image2" src="" alt="">
+                </div>
+                <div class="col-12 col-md-6 d-flex p-4">
+                <p class="brodtekst2 align-self-center mt-5 mt-md-0"></p>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section id="sec_4" class="mt-1 mt-md-5 mb-5">
+    <div class="container">
+    <div class="row"> 
+                <div class="col d-flex justify-content-center">
+                    <button class="knap elementor-button-link elementor-button elementor-size-sm elementor-animation-grow align-self-center">Back to articles</button>
+            </div>
+    </div>
+</section>
 
     </main>
     </section>
@@ -115,10 +149,13 @@ get_header();
 
         function visBlogpost() {
             console.log("hej med dig", blogpost);
-            document.querySelector(".headline").textContent = blogpost.title.rendered;
-            document.querySelector(".image").src = blogpost.image1.guid;
-            document.querySelector(".paragraph").innerHTML = blogpost.paragraph1.rendered;
-            document.querySelector(".knap button").addEventListener("click", () => {
+            document.querySelector(".rubrik").textContent = blogpost.title.rendered;
+            document.querySelector(".underrubrik").textContent = blogpost.underrubrik;
+            document.querySelector(".image1").src = blogpost.image1.guid;
+            document.querySelector(".brodtekst1").innerHTML = blogpost.brodtekst1;
+            document.querySelector(".image2").src = blogpost.image2.guid;
+            document.querySelector(".brodtekst2").innerHTML = blogpost.brodtekst2;
+            document.querySelector(".knap").addEventListener("click", () => {
                 location.href = articles;
             });
         }
