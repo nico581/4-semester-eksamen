@@ -220,7 +220,7 @@ get_header();
     console.log("Nu opretter jeg knapper");
   }
 
-  // Funktion der opretter kategori knapper i html //
+  // Funktion der opretter kategori knapper i html og tilføjer classes //
   function opretKnapper() {
     categories.forEach((cat) => {
       document.querySelector(
