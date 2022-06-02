@@ -94,20 +94,22 @@ get_header();
     background-color: var(--cafelatte);
   }
 
-  .excerpt {
-    width: 400px;
-  }
+
   /*section 3*/
   #sec_3 {
     background-color: var(--creme);
-    height: 80vh;
   }
 
-  #highlight {
-    height: 80vh;
+  .spacer {
+    width: 100%;
+    height: 2rem;
+  }
+  @media (min-width:650px) {
+    .excerpt {
+    width: 400px;
   }
 
-
+  }
 
   @media (min-width:1300px) {
     .headline {
@@ -119,6 +121,10 @@ get_header();
     font-family: "Marcellus", serif;
     font-size: 2rem !important;
   } 
+  #sec_3 {
+    background-color: var(--creme);
+    height: 80vh;
+  }
   }
 
 </style>
@@ -182,7 +188,7 @@ get_header();
             Since 2012 ByLykke has worked towards creating the best skin care for you and your loved once.  Every step of the way we have been focused on making sure, that we only use the best and most active ingredients to help your skin be the best version of itself.
             </p>
             <button
-              class="knap shop elementor-button-link elementor-button elementor-size-sm elementor-animation-grow align-self-center align-self-md-start"
+              class="mb-4 knap shop elementor-button-link elementor-button elementor-size-sm elementor-animation-grow align-self-center align-self-md-start"
             > Discover our shop </button>
           </div>
           <div class="col-12 col-md-6 img d-none d-md-inline"></div>

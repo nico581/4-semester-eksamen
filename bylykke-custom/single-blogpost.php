@@ -39,6 +39,11 @@ get_header();
       background-color: var(--cafelatte);
   }
 
+  .info {
+    margin-left: 0px;
+margin-right: 0px;
+  }
+
   @media (min-width:1300px) {
     .rubrik {
     font-family: "Marcellus", serif;
@@ -79,7 +84,7 @@ get_header();
                 ><h1 class="rubrik text-center">
                 </h1>
         </div>
-        <div class="row d-flex flex-column align-items-center">
+        <div class="info row d-flex flex-column align-items-center m-0">
             <div class="col-12 col-md-4">
                     <p class="underrubrik text-center"></p>
             </div>
