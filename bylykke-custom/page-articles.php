@@ -38,10 +38,12 @@ get_header();
     padding: 0.8em;
     border: none;
     border-radius: 0;
+    margin: 0.2em;
   }
   .knap:hover {
     background-color: var(--golden);
   }
+
 .read:hover {
     background-color: var(--golden);
   }
@@ -66,9 +68,9 @@ get_header();
 
   /* billeder */ 
   .img {
-    background-image: url(https://bylykkeskincare.com/wp-content/uploads/2022/05/Artboard-2.png);
+    background-image: url(https://bylykkeskincare.com/wp-content/uploads/2022/01/repair_1-scaled.webp);
     width: 100%;
-    height: auto;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -147,7 +149,7 @@ get_header();
       <div class="container-fluid">
         <div class="row m-5">
           <div class="col d-flex justify-content-center">
-            <nav class="d-flex gap-5" id="filtrering"></nav>
+            <nav class="d-inline-block text-center m-2 d-md-flex gap-5" id="filtrering"></nav>
           </div>
         </div>
         <div class="row">
@@ -164,23 +166,18 @@ get_header();
     <section id="sec_3">
       <div class="container-fluid">
         <div id="highlight" class="row">
-          <div
-            id="col-1"
-            class="col-12 col-sm-6 d-flex flex-column p-5 justify-content-center"
-          >
-            <h2 class="headline">Shop our skincare</h2>
-            <p class="text mt-5 mb-5">
+          <div class="col-12 col-md-6 d-flex flex-column p-5 justify-content-center">
+          <h2 class="headline">Shop our skincare</h2>
+          <p class="text mt-5 mb-5">
             Since 2012 ByLykke has worked towards creating the best skin care for you and your loved once.  Every step of the way we have been focused on making sure, that we only use the best and most active ingredients to help your skin be the best version of itself.
             </p>
             <button
-              class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow knap align-self-start"
-            >
-              Discover our shop
-            </button>
+              class="knap shop elementor-button-link elementor-button elementor-size-sm elementor-animation-grow align-self-center align-self-md-start"
+            > Discover our shop </button>
           </div>
-          <div id="col-2" class="col-12 col-sm-6 img"></div>
+          <div class="col-12 col-md-6 img d-none d-md-inline"></div>
         </div>
-      </div>
+        </div>
     </section>
   </main>
 </section>
@@ -204,6 +201,7 @@ get_header();
   let categories;
   let filterBlogpost = "alle";
 
+  const shop = "https://bylykkeskincare.com/shop/";
   const url = "https://bylykkeskincare.com/wp-json/wp/v2/blogpost?per_page=100";
   const catUrl = "https://bylykkeskincare.com/wp-json/wp/v2/categories";
 
@@ -266,6 +264,14 @@ get_header();
         container.appendChild(klon);
       }
     });
+
+    addEventListenerToKnap();
+  }
+
+  function addEventListenerToKnap() {
+    document.querySelector(".shop").addEventListener("click", () => {
+                location.href = shop;
+            });
   }
 
   getJson();

@@ -39,17 +39,17 @@ get_header();
       background-color: var(--cafelatte);
   }
 
-  /* Section 3 */
-
-  #sec_3 {
-      margin-top: 4em;
-      margin-bottom: 4em;
-  }
-
   @media (min-width:1300px) {
     .rubrik {
     font-family: "Marcellus", serif;
     font-size: 4em !important;
+  }
+
+    /* Section 3 */
+
+    #sec_3 {
+      margin-top: 4em;
+      margin-bottom: 4em;
   }
   }
 
@@ -90,8 +90,8 @@ get_header();
         
 <section id="sec_2">
 <div class="container">
-        <div class="row mt-5 mb-5 flex-column-reverse flex-md-row">
-                <div class="col-12 col-sm-6 d-flex mt-5 mt-md-0 p-4">
+        <div class="row mt-5 mb-md-5 flex-column-reverse flex-md-row">
+                <div class="col-12 col-sm-6 d-flex mt-md-5 mt-md-0 p-4">
                 <p class="brodtekst1 align-self-center"></p>
                 </div>
                 <div class="col-12 col-md-6 d-flex justify-content-center">
@@ -110,7 +110,7 @@ get_header();
                 <img class="image2" src="" alt="">
                 </div>
                 <div class="col-12 col-md-6 d-flex p-4">
-                <p class="brodtekst2 align-self-center mt-5 mt-md-0"></p>
+                <p class="brodtekst2 align-self-center mt-md-5"></p>
                 
                 </div>
             </div>
@@ -159,10 +159,6 @@ get_header();
                 location.href = articles;
             });
         }
-
-
-
-
 
         getJson();
 
