@@ -9,6 +9,10 @@ get_header();
     --black: #1d1c1c;
   }
 
+  #primary {
+    overflow: none;
+  }
+
   /* Font og fontsize */
 
   .text {
@@ -90,6 +94,9 @@ get_header();
     background-color: var(--cafelatte);
   }
 
+  .excerpt {
+    width: 400px;
+  }
   /*section 3*/
   #sec_3 {
     background-color: var(--creme);
@@ -99,6 +106,8 @@ get_header();
   #highlight {
     height: 80vh;
   }
+
+
 
   @media (min-width:1300px) {
     .headline {
@@ -111,6 +120,7 @@ get_header();
     font-size: 2rem !important;
   } 
   }
+
 </style>
 
 <!--fonts-->
@@ -184,7 +194,7 @@ get_header();
 
 <section id="oversigt">
   <template>
-    <article class="blogpost p-xs-2 p-4">
+    <article class="blogpost p-3 p-md-4">
       <img src="" alt="" class="image" />
       <div class="info d-flex flex-column">
         <h3 class="blogpost-headline mt-2 mb-3"></h3>
